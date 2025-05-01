@@ -1,18 +1,20 @@
 {
 	"name": "PlatformIO DevContainer",
 	"build": {
-		"dockerfile": "Dockerfile"
+	  "dockerfile": "Dockerfile"
 	},
 	"runArgs": [
-		"--device=/dev/ttyACM0"
+	  "--device=/dev/ttyACM0",
+	  "--group-add=dialout"
 	],
-	"remoteUser": "root",
+	"remoteUser": "vscode",
 	"customizations": {
-		"vscode": {
-			"extensions": [
-				"platformio.platformio-ide"
-				// Optional: "ms-azuretools.vscode-docker"
-			]
-		}
-	}
-}
+	  "vscode": {
+		"extensions": [
+		  "platformio.platformio-ide"
+		]
+	  }
+	},
+	"postCreateCommand": "pio lib install \"teemuatlut/TMCStepper@^0.7.3\" || true"
+  }
+  
