@@ -7,3 +7,4 @@ RUN apt-get update && apt-get install -y \
     avr-libc \
     avrdude && \
     pip install -U platformio
+    pio lib install
